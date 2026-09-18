@@ -96,11 +96,17 @@ html{scroll-behavior:smooth;scroll-padding-top:76px}
 .formbar a:hover{color:var(--ink)}
 .formpanel iframe{display:block;width:100%;height:1010px;border:0;background:#fff}
 @media (max-width:560px){.formpanel iframe{height:1320px}}
-footer{border-top:2px solid var(--ink);padding-block:34px 52px;margin-top:clamp(42px,6vw,72px)}
+footer{border-top:2px solid var(--ink);padding-block:34px 104px;margin-top:clamp(42px,6vw,72px)}
 footer .wrap{display:grid;gap:14px}
 footer .quote{font:700 clamp(17px,2.2vw,21px)/1.34 var(--display);text-transform:uppercase;color:var(--ink);max-width:32ch;letter-spacing:.015em}
 footer .quote cite{display:block;margin-top:9px;font:500 11px/1 var(--mono);letter-spacing:.14em;color:var(--ink-2);font-style:normal}
 footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.04em}
+.askhim{position:fixed;right:28px;bottom:28px;z-index:30;background:var(--ground);color:var(--ink);font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:15px 20px;border:2px solid var(--red);cursor:pointer;box-shadow:0 6px 24px rgba(0,0,0,.5)}
+.askhim b{color:var(--red)}
+.askhim:hover{background:var(--red);color:#fff}
+.askhim:hover b{color:#fff}
+.askhim[disabled]{cursor:progress;opacity:.75}
+@media (max-width:420px){.askhim{right:16px;bottom:16px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -418,6 +424,7 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
       Always free. Always outdoors. Always open to all men.</p>
   </div>
 </footer>
+<button type="button" class="askhim" id="askhim" hidden>Questions? Ask <b>HIM</b></button>
 <script>
 (function(){
   var btns=[].slice.call(document.querySelectorAll('.daybtn'));
@@ -459,6 +466,31 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
       '<iframe title="Contact F3 Greensboro" src="'+SRC+'" loading="lazy">Loading&hellip;</iframe></div>';
     btn.textContent='Close the form';
     host.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+})();
+
+// HIM, the F3 Akron-built chat assistant, is hosted on his Netlify site. Like the
+// contact form, nothing is fetched from it until a visitor clicks, so the page
+// still makes no third-party requests on load. The button is hidden without
+// JavaScript because it can do nothing without it. Once loaded, HIM's own
+// launcher takes over the same corner and this button goes away.
+(function(){
+  var btn=document.getElementById('askhim'); if(!btn) return;
+  var label=btn.innerHTML;
+  btn.hidden=false;
+  btn.addEventListener('click',function(){
+    btn.disabled=true; btn.textContent='Loading HIM\u2026';
+    var s=document.createElement('script');
+    s.src='https://f3greensboro.netlify.app/widget.js';
+    s.onload=function(){
+      btn.remove();
+      if(typeof window.himToggle==='function') window.himToggle();
+    };
+    s.onerror=function(){
+      s.remove(); btn.disabled=false; btn.innerHTML=label;
+      btn.insertAdjacentHTML('beforeend',' <span>&middot; offline, try again</span>');
+    };
+    document.body.appendChild(s);
   });
 })();
 </script>
