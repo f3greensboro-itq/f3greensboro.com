@@ -87,7 +87,8 @@ blockquote cite{display:block;margin-top:11px;font:500 11px/1 var(--mono);letter
 .principles li::before{content:"0" counter(p);font:600 12px/1.5 var(--mono);color:var(--red);letter-spacing:.06em}
 .cta{display:inline-block;background:var(--red);color:#fff;font:700 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:16px 28px;border:2px solid var(--red);margin-top:10px}
 .cta:hover{background:transparent;color:var(--red)}
-.formwrap{margin-top:22px;max-width:680px}
+.formwrap{margin-top:22px;max-width:680px;scroll-margin-top:76px}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
 .formpanel{border:1px solid var(--line);border-top:3px solid var(--red);background:var(--card)}
 .formbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
 .formbar span{font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
