@@ -87,6 +87,14 @@ blockquote cite{display:block;margin-top:11px;font:500 11px/1 var(--mono);letter
 .principles li::before{content:"0" counter(p);font:600 12px/1.5 var(--mono);color:var(--red);letter-spacing:.06em}
 .cta{display:inline-block;background:var(--red);color:#fff;font:700 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:16px 28px;border:2px solid var(--red);margin-top:10px}
 .cta:hover{background:transparent;color:var(--red)}
+.formwrap{margin-top:22px;max-width:680px}
+.formpanel{border:1px solid var(--line);border-top:3px solid var(--red);background:var(--card)}
+.formbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.formbar span{font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2)}
+.formbar a{font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--red);text-decoration:none}
+.formbar a:hover{color:var(--ink)}
+.formpanel iframe{display:block;width:100%;height:1010px;border:0;background:#fff}
+@media (max-width:560px){.formpanel iframe{height:1320px}}
 footer{border-top:2px solid var(--ink);padding-block:34px 52px;margin-top:clamp(42px,6vw,72px)}
 footer .wrap{display:grid;gap:14px}
 footer .quote{font:700 clamp(17px,2.2vw,21px)/1.34 var(--display);text-transform:uppercase;color:var(--ink);max-width:32ch;letter-spacing:.015em}
@@ -391,7 +399,8 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
     <p style="margin-top:18px;color:var(--ink-2)">You don&rsquo;t need permission to come to a workout
       &mdash; just turn up. The form is for everything else: a question about an AO, starting one,
       or a community request.</p>
-    <a class="cta" href="https://forms.gle/hmx6kDfQBexPRHHz5" rel="noopener">Send us a message</a>
+    <a class="cta" id="formbtn" href="https://forms.gle/hmx6kDfQBexPRHHz5" rel="noopener" target="_blank">Send us a message</a>
+    <div class="formwrap" id="formwrap"></div>
     <p class="altmail" hidden style="margin-top:20px;font-size:15px;color:var(--ink-2)">Or email
       <a class="mailto" href="#">&nbsp;</a>.</p>
     <p style="margin-top:22px;font-size:15px;color:var(--ink-2)">Northwest Greensboro is covered by
@@ -431,6 +440,25 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
   a.href='mailto:'+who+String.fromCharCode(64)+host;
   a.textContent=who+String.fromCharCode(64)+host;
   var wrap=document.querySelector('.altmail'); if(wrap) wrap.hidden=false;
+})();
+
+// Expand the Google Form inline instead of navigating away. Nothing is requested
+// from Google until the visitor actually clicks, so the page makes no third-party
+// requests on load. Without JavaScript the button stays an ordinary link to the
+// form, so this only ever adds behaviour.
+(function(){
+  var btn=document.getElementById('formbtn'), host=document.getElementById('formwrap');
+  if(!btn||!host) return;
+  var SRC='https://docs.google.com/forms/d/e/1FAIpQLSfdHcocCtP71TnIDF1B9cT-sj2eyVbD5eYQOAw0USS-pbc8ZA/viewform?embedded=true';
+  btn.addEventListener('click',function(ev){
+    ev.preventDefault();
+    if(host.firstChild){ host.innerHTML=''; btn.textContent='Send us a message'; return; }
+    host.innerHTML='<div class="formpanel"><div class="formbar"><span>Contact F3 Greensboro</span>'+
+      '<a href="'+btn.href+'" target="_blank" rel="noopener">Open in a new tab &rarr;</a></div>'+
+      '<iframe title="Contact F3 Greensboro" src="'+SRC+'" loading="lazy">Loading&hellip;</iframe></div>';
+    btn.textContent='Close the form';
+    host.scrollIntoView({behavior:'smooth',block:'start'});
+  });
 })();
 </script>
 </body>
