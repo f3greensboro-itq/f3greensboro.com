@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>F3 Greensboro &middot; Free outdoor workouts for men</title>
+<meta name="description" content="Free, peer-led outdoor workouts for men across Greensboro, NC. 23 a week. No signup, no fee, no fitness test — just show up.">
+<link rel="canonical" href="https://f3greensboro.com/">
+<meta name="theme-color" content="#1F5E46">
+
+<!-- Link previews in Slack, GroupMe and iMessage.
+     TODO: add og.png (1200x630) once the logo is recovered from the uploads archive,
+     then uncomment the og:image lines below. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="F3 Greensboro">
+<meta property="og:title" content="F3 Greensboro &middot; Free outdoor workouts for men">
+<meta property="og:description" content="23 free workouts a week across Greensboro. No signup, no fee. Just show up.">
+<meta property="og:url" content="https://f3greensboro.com/">
+<!-- <meta property="og:image" content="https://f3greensboro.com/og.png"> -->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F4; --card:#FFFFFF; --ink:#12211C; --ink-2:#4A5C54; --line:#D6DFDA;
+  --green:#1F5E46; --green-lo:#E4EDE8; --orange:#DB4F26; --shadow:0 1px 2px rgba(18,33,28,.06);
+  --display:"Archivo",system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 18px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:-.015em}
+h1{font-size:clamp(40px,7.5vw,76px);font-weight:800}
+h2{font-size:clamp(28px,4vw,40px)}
+p{margin:0;max-width:62ch}
+a{color:var(--green)}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(18px,4vw,40px)}
+
+/* nav */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(244,246,244,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:10px 26px;flex-wrap:wrap;padding-block:13px}
+.brand{font:800 21px/1 var(--display);letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+.brand span{color:var(--green)}
+.topbar nav{margin-left:auto;display:flex;gap:6px 22px;flex-wrap:wrap}
+.topbar nav a{font:600 14px/1 var(--display);color:var(--ink-2);text-decoration:none}
+.topbar nav a:hover{color:var(--green)}
+
+/* hero */
+.hero{padding-block:clamp(48px,8vw,96px) clamp(30px,4vw,48px)}
+.hero .eyebrow{font:700 13px/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero p.lede{margin-top:22px;font-size:clamp(19px,2.3vw,23px);line-height:1.5;color:var(--ink-2)}
+.facts{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px}
+.facts b{background:var(--green-lo);color:var(--green);border-radius:999px;padding:8px 16px;font:600 14px/1 var(--display)}
+
+/* schedule */
+.sched{padding-block:clamp(30px,4vw,44px)}
+.dayrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.daybtn{font:700 15px/1 var(--display);background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:11px 15px;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:var(--shadow)}
+.daybtn span{font-size:12px;font-weight:600;color:var(--ink-2);background:var(--ground);border-radius:6px;padding:2px 6px}
+.daybtn:hover{border-color:var(--green)}
+.daybtn[aria-pressed="true"]{background:var(--green);color:#fff;border-color:var(--green)}
+.daybtn[aria-pressed="true"] span{background:rgba(255,255,255,.2);color:#fff}
+.dayname{font-size:15px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2);margin-bottom:12px}
+.dayblock+.dayblock{margin-top:34px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:12px}
+.ao{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 19px;box-shadow:var(--shadow);display:grid;gap:5px;align-content:start;border-top:3px solid var(--green)}
+.ao .when{font:700 15px/1 var(--display);color:var(--orange);font-variant-numeric:tabular-nums}
+.ao .when span{color:var(--ink-2);font-weight:500}
+.ao h4{font-size:21px;margin-top:3px}
+.ao .where{font-size:15.5px;color:var(--ink-2);line-height:1.4}
+.ao .tag{display:inline-block;font:600 12px/1 var(--display);background:var(--green-lo);color:var(--green);border-radius:6px;padding:5px 9px;margin-top:5px}
+.ao .q{font-size:13.5px;color:var(--ink-2);border-top:1px solid var(--line);padding-top:9px;margin-top:6px;font-family:var(--display);font-weight:500}
+
+/* generic sections */
+.band{background:var(--card);border-block:1px solid var(--line);padding-block:clamp(44px,6vw,72px);margin-top:clamp(40px,6vw,70px)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:clamp(24px,4vw,44px);margin-top:28px}
+.step{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;padding-block:12px;border-bottom:1px solid var(--line)}
+.step b{font:800 16px/1.3 var(--display);color:var(--orange)}
+.step p{font-size:16.5px}
+.step strong{font-family:var(--display);font-weight:700}
+.kitlist{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.kitlist li{display:grid;grid-template-columns:auto 1fr;gap:11px;font-size:16.5px;align-items:baseline}
+.kitlist li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange);display:block;margin-top:8px}
+blockquote{margin:0;border-left:4px solid var(--orange);padding:4px 0 4px 20px}
+blockquote p{font:700 clamp(21px,3vw,29px)/1.25 var(--display);letter-spacing:-.015em}
+blockquote cite{display:block;margin-top:10px;font:600 13px/1 var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);font-style:normal}
+.principles{counter-reset:p;list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.principles li{counter-increment:p;display:grid;grid-template-columns:30px 1fr;gap:13px;font-size:16.5px;align-items:baseline}
+.principles li::before{content:counter(p);font:800 15px/1.4 var(--display);color:var(--green)}
+.cta{display:inline-block;background:var(--orange);color:#fff;font:700 16px/1 var(--display);text-decoration:none;padding:16px 28px;border-radius:10px;margin-top:8px}
+.cta:hover{background:var(--ink);color:#fff}
+footer{padding-block:40px 56px;color:var(--ink-2);font-size:15px}
+footer .wrap{display:grid;gap:14px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">F3 <span>Greensboro</span></a>
+    <nav>
+      <a href="#workouts">Workouts</a>
+      <a href="#first">First time</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero wrap" id="top">
+  <p class="eyebrow">Free workouts for men &middot; Greensboro, NC</p>
+  <h1>Show up. That&rsquo;s the <em>whole process.</em></h1>
+  <p class="lede">No signup, no fee, no fitness test, and nobody to email first.
+    23 workouts a week, outdoors, led by the guys who show up to them.</p>
+  <div class="facts"><b>Always free</b><b>Outdoors, rain or shine</b><b>Open to all men</b><b>Since October 2014</b></div>
+</header>
+
+<div class="sched wrap" id="workouts">
+  <h2>Find a workout</h2>
+  <p style="margin-top:14px;color:var(--ink-2)">Pick a day. Turn up five minutes early.</p>
+  <div class="dayrow" role="group" aria-label="Filter by day">
+    <button type="button" class="daybtn" data-day="all">All</button>
+        <button type="button" class="daybtn" data-day="Monday">Mon<span>3</span></button>
+        <button type="button" class="daybtn" data-day="Tuesday">Tue<span>4</span></button>
+        <button type="button" class="daybtn" data-day="Wednesday">Wed<span>3</span></button>
+        <button type="button" class="daybtn" data-day="Thursday">Thu<span>5</span></button>
+        <button type="button" class="daybtn" data-day="Friday">Fri<span>2</span></button>
+        <button type="button" class="daybtn" data-day="Saturday">Sat<span>4</span></button>
+        <button type="button" class="daybtn" data-day="Sunday">Sun<span>2</span></button>
+  </div>
+
+      <section class="dayblock" data-day="Monday">
+        <h3 class="dayname">Monday</h3>
+        <div class="grid">
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>JTown Beatdown</h4>
+            <p class="where">Life Community Church</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Stryker / Ma Meatloaf</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Latham Grinder</h4>
+            <p class="where">Latham Park</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Dano / Champ</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Quaker Crater</h4>
+            <p class="where">Jefferson Elementary</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Doherty</p>
+          </article>
+        </div>
+      </section>
+      <section class="dayblock" data-day="Tuesday">
+        <h3 class="dayname">Tuesday</h3>
+        <div class="grid">
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Arise</h4>
+            <p class="where">Grace UMC</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Farsight</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Fenceline</h4>
+            <p class="where">Irving Park Elementary</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Blue Oyster, Ozone</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Shake Weight</h4>
+            <p class="where">Tanger Building Parking Deck</p>
+            <p class="meta"><span class="tag">Dumbbells / Bootcamp</span></p>
+            <p class="q">Site Q &middot; Fannie</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:45pm <span>&ndash; 6:30pm</span></p>
+            <h4>Blue Plate Special</h4>
+            <p class="where">Leonard Recreation Center</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Short Bus</p>
+          </article>
+        </div>
+      </section>
+      <section class="dayblock" data-day="Wednesday">
+        <h3 class="dayname">Wednesday</h3>
+        <div class="grid">
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Local Honey</h4>
+            <p class="where">Bellemeade St and Commerce Pl</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Mesquite</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Natty&#x27;s Hump</h4>
+            <p class="where">Jaycee Park</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Jitterbug</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Slammin&#x27; Sammy&#x27;s Smackdown</h4>
+            <p class="where">Lindley Park</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Judd</p>
+          </article>
+        </div>
+      </section>
+      <section class="dayblock" data-day="Thursday">
+        <h3 class="dayname">Thursday</h3>
+        <div class="grid">
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Starmount Stampede</h4>
+            <p class="where">Lindley Park</p>
+            <p class="meta"><span class="tag">Run</span></p>
+            <p class="q">Site Q &middot; Refi, Hermey</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Sweat Angel</h4>
+            <p class="where">Jaycee Park</p>
+            <p class="meta"><span class="tag">Kettlebell / Dumbbells</span></p>
+            <p class="q">Site Q &middot; Eggplant</p>
+          </article>
+          <article class="ao">
+            <p class="when">7:00pm <span>&ndash; 7:45pm</span></p>
+            <h4>Closing Time</h4>
+            <p class="where">Jaycee Park</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Slide Rule / Breaker</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Hobble and Gobble</h4>
+            <p class="where">K&amp;W Cafeteria</p>
+            <p class="meta"><span class="tag">Ruck and Coupon</span></p>
+            <p class="q">Site Q &middot; Phoenix, Stretch</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Ink Well</h4>
+            <p class="where">Smith High School</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Flo Jo</p>
+          </article>
+        </div>
+      </section>
+      <section class="dayblock" data-day="Friday">
+        <h3 class="dayname">Friday</h3>
+        <div class="grid">
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Uptown Funk</h4>
+            <p class="where">Church St Parking Deck</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Poehler, Drysdale</p>
+          </article>
+          <article class="ao">
+            <p class="when">5:30am <span>&ndash; 6:15am</span></p>
+            <h4>Castle Tour</h4>
+            <p class="where">Irving Park Elementary</p>
+            <p class="meta"><span class="tag">Running</span></p>
+            <p class="q">Site Q &middot; PAX Led</p>
+          </article>
+        </div>
+      </section>
+      <section class="dayblock" data-day="Saturday">
+        <h3 class="dayname">Saturday</h3>
+        <div class="grid">
+          <article class="ao">
+            <p class="when">6:00am <span>&ndash; 7:00am</span></p>
+            <h4>Northern Ruckus</h4>
+            <p class="where">Jaycee Park</p>
+            <p class="meta"><span class="tag">Ruck</span></p>
+            <p class="q">Site Q &middot; PAX Led</p>
+          </article>
+          <article class="ao">
+            <p class="when">7:00am <span>&ndash; 8:00am</span></p>
+            <h4>Cornwallis&#x27; Nightmare</h4>
+            <p class="where">Jaycee Park</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Radiator, On Time</p>
+          </article>
+          <article class="ao">
+            <p class="when">7:00am <span>&ndash; 8:00am</span></p>
+            <h4>Rainbow Dash</h4>
+            <p class="where">Mendenhall Middle School</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Rabbit</p>
+          </article>
+          <article class="ao">
+            <p class="when">7:00am <span>&ndash; 8:00am</span></p>
+            <h4>Wakanda</h4>
+            <p class="where">Dudley High School</p>
+            <p class="meta"><span class="tag">Bootcamp</span></p>
+            <p class="q">Site Q &middot; Spare Time</p>
+          </article>
+        </div>
+      </section>
+      <section class="dayblock" data-day="Sunday">
+        <h3 class="dayname">Sunday</h3>
+        <div class="grid">
+          <article class="ao">
+            <p class="when">6:30am <span>&ndash; until</span></p>
+            <h4>Sole Crusher</h4>
+            <p class="where">Caribou Coffee at Friendly Center</p>
+            <p class="meta"><span class="tag">Run</span></p>
+            <p class="q">Site Q &middot; PAX Led</p>
+          </article>
+          <article class="ao">
+            <p class="when">7:00am <span>&ndash; until</span></p>
+            <h4>Ruck the Dog</h4>
+            <p class="where">Jaycee Park</p>
+            <p class="meta"><span class="tag">Ruck</span></p>
+            <p class="q">Site Q &middot; PAX Led</p>
+          </article>
+        </div>
+      </section>
+</div>
+
+<div class="band" id="first">
+  <div class="wrap">
+    <h2>Never been before?</h2>
+    <p style="margin-top:16px;color:var(--ink-2);font-size:19px">Every man asks the same thing first:
+      <em>will I be the one who can&rsquo;t keep up?</em> No. There are men in their twenties and men in
+      their sixties at every workout. Everything can be modified, and nobody is timing you.</p>
+    <div class="cols">
+      <div>
+        <h3 style="font-size:20px">How a workout goes</h3>
+        <div class="step"><b>1</b><p><strong>The Disclaimer.</strong> The leader says out loud that he&rsquo;s not a professional and that you should modify anything that hurts.</p></div>
+        <div class="step"><b>2</b><p><strong>Warm-O-Rama.</strong> Ten minutes of easy movement.</p></div>
+        <div class="step"><b>3</b><p><strong>The Thang.</strong> The main event. Different every single day.</p></div>
+        <div class="step"><b>4</b><p><strong>Mary.</strong> Core work to finish.</p></div>
+        <div class="step" style="border-bottom:0"><b>5</b><p><strong>Circle of Trust.</strong> Everyone circles up, says their name, and the group closes together.</p></div>
+      </div>
+      <div>
+        <h3 style="font-size:20px">What to bring</h3>
+        <ul class="kitlist" style="margin-top:16px">
+          <li>Water &mdash; there&rsquo;s no fountain</li>
+          <li>Shoes you can run in</li>
+          <li>Something reflective if it&rsquo;s dark</li>
+          <li>Gloves in winter</li>
+          <li>Nothing else. No membership, no waiver, no gear.</li>
+        </ul>
+        <p style="margin-top:22px;color:var(--ink-2);font-size:16.5px">You&rsquo;ll leave with a nickname.
+          You don&rsquo;t get a vote on it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="about" style="padding-block:clamp(44px,6vw,72px)">
+  <h2>What F3 is</h2>
+  <div class="cols">
+    <div>
+      <p style="color:var(--ink-2);margin-bottom:22px">Fitness, Fellowship and Faith. A free, peer-led
+        network of men&rsquo;s workout groups that started in a Charlotte park in 2006. F3 Greensboro
+        launched at Jaycee Park in October 2014 with help from F3 Winston-Salem and F3 Charlotte.</p>
+      <blockquote>
+        <p>Leave no man behind, but leave no man where you find him.</p>
+        <cite>The F3 Credo</cite>
+      </blockquote>
+    </div>
+    <div>
+      <h3 style="font-size:20px">Five core principles</h3>
+      <ol class="principles">
+        <li>Free of charge.</li>
+        <li>Open to all men.</li>
+        <li>Held outdoors &mdash; rain or shine, heat or cold.</li>
+        <li>Led by men who participate, in rotation, with no certification.</li>
+        <li>End with a Circle of Trust.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="band" id="contact">
+  <div class="wrap">
+    <h2>Questions?</h2>
+    <p style="margin-top:16px;color:var(--ink-2)">You don&rsquo;t need to ask permission to come to a
+      workout &mdash; just turn up. But if you want to reach someone first, we&rsquo;re here.</p>
+    <a class="cta" href="mailto:f3greensboro.itq@gmail.com">Email F3 Greensboro</a>
+    <p style="margin-top:20px;font-size:15px;color:var(--ink-2)">Northwest Greensboro is covered by
+      <a href="https://f3northernalliance.com">F3 Northern Alliance</a>.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p style="font-family:var(--display);font-weight:700;font-size:18px;color:var(--ink)">&ldquo;We fight, get beat, rise, and fight again.&rdquo;</p>
+    <p>F3 Greensboro &middot; Guilford County, North Carolina &middot; <a href="https://f3nation.com">F3 Nation</a></p>
+  </div>
+</footer>
+<script>
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.daybtn'));
+  var blocks=[].slice.call(document.querySelectorAll('.dayblock'));
+  if(!btns.length) return;
+  function show(day){
+    blocks.forEach(function(b){ b.hidden = day!=='all' && b.dataset.day!==day; });
+    btns.forEach(function(b){ b.setAttribute('aria-pressed', String(b.dataset.day===day)); });
+  }
+  btns.forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.day); }); });
+  var today=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()];
+  show(btns.some(function(b){return b.dataset.day===today;}) ? today : 'all');
+})();
+</script>
+</body>
+</html>
