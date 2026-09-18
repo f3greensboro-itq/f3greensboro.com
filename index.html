@@ -389,8 +389,11 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
   <div class="wrap">
     <h2>Questions?</h2>
     <p style="margin-top:18px;color:var(--ink-2)">You don&rsquo;t need permission to come to a workout
-      &mdash; just turn up. But if you want to reach someone first, we&rsquo;re here.</p>
-    <a class="cta" href="mailto:f3greensboro.itq@gmail.com">Email F3 Greensboro</a>
+      &mdash; just turn up. The form is for everything else: a question about an AO, starting one,
+      or a community request.</p>
+    <a class="cta" href="https://forms.gle/hmx6kDfQBexPRHHz5" rel="noopener">Send us a message</a>
+    <p class="altmail" hidden style="margin-top:20px;font-size:15px;color:var(--ink-2)">Or email
+      <a class="mailto" href="#">&nbsp;</a>.</p>
     <p style="margin-top:22px;font-size:15px;color:var(--ink-2)">Northwest Greensboro is covered by
       <a href="https://f3northernalliance.com">F3 Northern Alliance</a>.</p>
   </div>
@@ -417,6 +420,17 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
   btns.forEach(function(b){ b.addEventListener('click',function(){ show(b.dataset.day); }); });
   var today=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()];
   show(btns.some(function(b){return b.dataset.day===today;}) ? today : 'all');
+})();
+
+// The address is assembled here rather than written into the page, so address
+// harvesters scraping the HTML come away with nothing. The Google Form above is
+// the primary route and works without JavaScript; this is the fallback.
+(function(){
+  var a=document.querySelector('a.mailto'); if(!a) return;
+  var who='f3greensboro.itq', host='gmail'+String.fromCharCode(46)+'com';
+  a.href='mailto:'+who+String.fromCharCode(64)+host;
+  a.textContent=who+String.fromCharCode(64)+host;
+  var wrap=document.querySelector('.altmail'); if(wrap) wrap.hidden=false;
 })();
 </script>
 </body>

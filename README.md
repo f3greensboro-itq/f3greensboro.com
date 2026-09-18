@@ -27,9 +27,18 @@ decrement the count in that day's filter button near the top.
 
 ## Contact
 
-The contact link is a `mailto:` to `f3greensboro.itq@gmail.com`. Because that
-address is in public HTML it will attract spam. If that becomes a problem,
-replace it with a Formspree form (free tier, no address exposed in the page).
+The contact button points at a Google Form owned by the `f3greensboro.itq@gmail.com`
+account: https://forms.gle/hmx6kDfQBexPRHHz5
+
+It lives on that account deliberately. Whoever inherits the ITQ inbox inherits the
+form, its responses and its notifications — there is no separate vendor account to
+hand over. If responses ever stop arriving, check **Responses → ⋮ → Get email
+notifications for new responses** on the form; the old WordPress contact form
+failed silently for years and nobody noticed.
+
+The email address is also offered as a fallback, but it is assembled by JavaScript
+at the bottom of `index.html` rather than written into the page, so address
+harvesters scraping the HTML find nothing. If you edit that block, keep it that way.
 
 ## History
 
