@@ -15,6 +15,7 @@ names or email addresses in this repository. Those live in the private
 | `index.html` | The entire website. One page, no build step, styles inline. |
 | `404.html` | Shown for any old WordPress URL. Points people at PAX Vault. |
 | `photos/` | Photos for the top of the page. See **Photos** below. |
+| `CNAME` | Tells GitHub Pages to serve the site at `f3greensboro.com`. Do not delete it. |
 
 ## Editing
 
@@ -43,6 +44,41 @@ Put full-size originals in `photos/originals/`. That folder is git-ignored, so
 they never reach this public repository. Only use photos the men in them are
 fine being on a public website with, and no children.
 
+## Hosting
+
+Three services, each on an account the region controls rather than a person's:
+
+| What | Where | Account |
+|---|---|---|
+| Domain registration | Hover | Paid through May 2027. Keep auto-renew on. |
+| DNS | Cloudflare (free plan) | `f3greensboro.itq@gmail.com` |
+| The website | GitHub Pages, from `main` of this repository | `f3greensboro-itq` |
+
+The domain's nameservers at Hover point to Cloudflare, so DNS records in Hover's
+own DNS page are ignored. Make DNS changes in Cloudflare only. There is no email
+on the domain, so there are no MX records.
+
+The Cloudflare records are:
+
+| Type | Name | Content |
+|---|---|---|
+| A | `f3greensboro.com` | `185.199.108.153`, `.109.153`, `.110.153`, `.111.153` |
+| AAAA | `f3greensboro.com` | `2606:50c0:8000::153`, `8001`, `8002`, `8003` |
+| CNAME | `www` | `f3greensboro-itq.github.io` |
+| TXT | `_github-pages-challenge-f3greensboro-itq` | GitHub's domain verification code |
+
+- Every record must be **DNS only** (grey cloud), not Proxied. GitHub has to see
+  visitors directly to issue and renew the HTTPS certificate.
+- Keep the TXT record. It proves to GitHub that `f3greensboro-itq` owns the
+  domain, which stops any other GitHub account from claiming it. The
+  verification is under the `f3greensboro-itq` account's own
+  **Settings → Pages**, not the repository's.
+
+In the repository's **Settings → Pages**, the custom domain is
+`f3greensboro.com` and **Enforce HTTPS** is on. GitHub issues and renews the
+certificate automatically. `www` and plain `http://` both redirect to
+`https://f3greensboro.com/`.
+
 ## Contact
 
 The contact button points at a Google Form owned by the `f3greensboro.itq@gmail.com`
@@ -60,7 +96,8 @@ harvesters scraping the HTML find nothing. If you edit that block, keep it that 
 
 ## History
 
-This replaced a WordPress site hosted on SiteGround, cancelled at the October
-2026 renewal. The 4,998 backblasts posted there between 2014 and 2026 are
+This replaced a WordPress site hosted on SiteGround, which also ran the domain's
+DNS. The domain moved to Cloudflare DNS and GitHub Pages on 27 September 2026,
+and the SiteGround hosting was cancelled the same day. The 4,998 backblasts posted there between 2014 and 2026 are
 preserved as markdown in the private archive repository. New backblasts are
 posted to PAX Vault in Slack, not here.
