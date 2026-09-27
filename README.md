@@ -14,6 +14,7 @@ names or email addresses in this repository. Those live in the private
 |---|---|
 | `index.html` | The entire website. One page, no build step, styles inline. |
 | `404.html` | Shown for any old WordPress URL. Points people at PAX Vault. |
+| `photos/` | Photos for the top of the page. See **Photos** below. |
 
 ## Editing
 
@@ -24,6 +25,23 @@ The workout schedule is a block of `<article class="ao">` cards inside a
 `<section class="dayblock" data-day="...">` per day. To change a workout, edit
 its card. To add one, copy a neighbouring card. To retire an AO, delete it and
 decrement the count in that day's filter button near the top.
+
+## Photos
+
+The top of the page shows one photo from `photos/`, picked at random on each
+visit. The list of photos is in `index.html`, in the script just under the
+headline, one line per photo with its size, alt text, caption and focal point.
+
+To add one:
+
+1. Resize it to about 1600px on the long side, 200-400 KB. Phone originals are
+   several megabytes and would make the page slow on mobile data.
+2. Strip its metadata (location, camera, date) — `exiftool -all= photo.jpg`.
+3. Put it in `photos/` and add a line to the list in `index.html`.
+
+Put full-size originals in `photos/originals/`. That folder is git-ignored, so
+they never reach this public repository. Only use photos the men in them are
+fine being on a public website with, and no children.
 
 ## Contact
 

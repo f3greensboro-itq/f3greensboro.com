@@ -49,6 +49,17 @@ a{color:var(--yellow)}
 .hero p.lede{margin-top:24px;font-size:clamp(18px,2.2vw,22px);line-height:1.5;color:var(--ink-2)}
 .facts{margin-top:30px;display:flex;flex-wrap:wrap;gap:1px;background:var(--line);border:1px solid var(--line)}
 .facts b{background:var(--ground);color:var(--ink);padding:11px 18px;font:600 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;flex:1 1 auto;text-align:center}
+.herophoto{margin:34px 0 0;border:1px solid var(--line);border-top:3px solid var(--green);background:var(--card)}
+.herophoto img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover}
+.herophoto figcaption{font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--yellow);padding:11px 14px;border-top:1px solid var(--line)}
+.herophoto figcaption:empty{display:none}
+@media (min-width:880px){
+  .hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:end}
+  .hero h1{font-size:clamp(44px,6.4vw,76px)}
+  .hero .facts{display:grid;grid-template-columns:1fr 1fr}
+  .herophoto{margin-top:0}
+  .herophoto img{aspect-ratio:4/5}
+}
 
 .sched{padding-block:clamp(30px,4vw,46px)}
 .sched .sub{margin-top:14px;color:var(--ink-2);font-size:16px}
@@ -125,11 +136,76 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
 </div>
 
 <header class="hero wrap" id="top">
-  <p class="eyebrow">Free workouts for men &middot; Greensboro, NC</p>
-  <h1>Show up. That&rsquo;s the <em>whole process.</em></h1>
-  <p class="lede">No signup, no fee, no fitness test, and nobody to email first.
-    23 workouts a week, outdoors, led by the guys who show up to them.</p>
-  <div class="facts"><b>Always free</b><b>Rain or shine</b><b>All men welcome</b><b>Since 2014</b></div>
+  <div>
+    <p class="eyebrow">Free workouts for men &middot; Greensboro, NC</p>
+    <h1>Show up. That&rsquo;s the <em>whole process.</em></h1>
+    <p class="lede">No signup, no fee, no fitness test, and nobody to email first.
+      23 workouts a week, outdoors, led by the guys who show up to them.</p>
+    <div class="facts"><b>Always free</b><b>Rain or shine</b><b>All men welcome</b><b>Since 2014</b></div>
+  </div>
+  <figure class="herophoto" id="herophoto">
+    <noscript><img src="photos/ink-well-pax.jpg" width="1600" height="1200" alt="Eleven men posing after a sunrise workout in front of Smith High School"></noscript>
+    <figcaption>Ink Well &middot; Smith High School</figcaption>
+  </figure>
+  <script>
+  // A different photo from photos/ on each visit. The script runs as soon as the
+  // figure is parsed, so the pick is made before anything is fetched or painted and
+  // the page never flashes one photo and then swaps to another.
+  //
+  // To add a photo: resize it to about 1600px on the long side (200-400 KB), strip
+  // its metadata, put it in photos/ and add a line below. pos is the point kept in
+  // frame when the photo is cropped tall on desktop. Leave caption empty if unsure.
+  (function(){
+    var PHOTOS=[
+      {src:'ink-well-pax.jpg',w:1600,h:1200,pos:'50% 50%',caption:'Ink Well · Smith High School',
+        alt:'Eleven men posing after a sunrise workout in front of Smith High School'},
+      {src:'ink-well-flag.jpg',w:1448,h:1086,pos:'52% 50%',caption:'Ink Well · Smith High School',
+        alt:'An American flag on a shovel in the grass in front of Smith High School'},
+      {src:'hobble-and-gobble-flag.jpg',w:1448,h:1086,pos:'48% 50%',caption:'Hobble and Gobble',
+        alt:'A walker draped with an American flag and a Hobble and Gobble sign, set up before dawn at a parking deck'},
+      {src:'blue-ridge-relay-2026.jpg',w:1600,h:1066,pos:'42% 50%',caption:'Blue Ridge Relay 2026',
+        alt:'A big group of F3 Greensboro men, some in clown wigs and bow ties, behind the Blue Ridge Relay banner'},
+      {src:'cornwallis-nightmare-bootcamp.jpg',w:1440,h:760,pos:'58% 50%',caption:'Cornwallis\u2019 Nightmare \u00b7 Jaycee Park',
+        alt:'Two rows of men doing push-ups on the grass beside a ball field, an F3 flag planted in front'},
+      {src:'cross-ruck.jpg',w:1279,h:850,pos:'62% 50%',caption:'Cross Ruck \u00b7 Downtown Greensboro',
+        alt:'Men in winter gear and rucksacks doing push-ups on concrete, one in the foreground'},
+      {src:'ruck-the-dog.jpg',w:1200,h:1200,pos:'62% 50%',caption:'Ruck the Dog \u00b7 Jaycee Park',
+        alt:'Two men with rucksacks walking a dog down a greenway covered in yellow autumn leaves'},
+      {src:'ruck-the-dog-2.jpg',w:1400,h:988,pos:'65% 50%',caption:'Ruck the Dog \u00b7 Jaycee Park',
+        alt:'Ruckers and their dogs crossing a wooden footbridge through bright spring woods'},
+      {src:'ruck-the-dog-3.jpg',w:1400,h:787,pos:'45% 50%',caption:'Ruck the Dog \u00b7 Jaycee Park',
+        alt:'A line of ruckers and black dogs walking a wet greenway through spring trees'},
+      {src:'cornwallis-nightmare-bootcamp-2.jpg',w:1400,h:787,pos:'45% 50%',caption:'Cornwallis\u2019 Nightmare \u00b7 Jaycee Park',
+        alt:'Men in gloves running a lap of the infield dirt at a ball field in early spring'},
+      {src:'cornwallis-nightmare-july-4.jpg',w:1400,h:1050,pos:'35% 50%',caption:'Cornwallis\u2019 Nightmare \u00b7 July 4th',
+        alt:'A big crowd of men doing situps across a wide park lawn on a summer morning'},
+      {src:'cornwallis-nightmare-july-4-2.jpg',w:1400,h:1050,pos:'50% 50%',caption:'Cornwallis\u2019 Nightmare \u00b7 July 4th',
+        alt:'A large circle of men, some holding small American flags, gathered around a flagpole under big oak trees'},
+      {src:'blackbeard-challenge-2020.jpg',w:1600,h:717,pos:'58% 50%',caption:'Blackbeard Challenge 2020',
+        alt:'A wide circle of ruckers with weighted vests and packs gathered in a parking lot'},
+      {src:'service-toy-ruck.jpg',w:1400,h:1050,pos:'45% 50%',caption:'Toy Ruck 2019',
+        alt:'Smiling men carrying green bins full of toys and balls on long wooden poles'},
+      {src:'service-toy-ruck-2.jpg',w:1400,h:1050,pos:'45% 50%',caption:'Toy Ruck 2018',
+        alt:'Men in winter gear carrying bins of toys on wooden poles down a foggy road, one in a kilt'},
+      {src:'service-lumberjack.jpg',w:1400,h:787,pos:'72% 50%',caption:'Service project \u00b7 Splitting firewood',
+        alt:'Men with axes splitting a big pile of logs in a front yard'},
+      {src:'cornwallis-nightmare-bootcamp-3.jpg',w:1400,h:1050,pos:'45% 50%',caption:'Cornwallis\u2019 Nightmare \u00b7 Jaycee Park',
+        alt:'A dozen men posing in the Cone Boulevard pedestrian tunnel after a workout'},
+      {src:'hobble-and-gobble-weinke.jpg',w:1024,h:1024,pos:'50% 50%',caption:'Hobble and Gobble \u00b7 The weinke',
+        alt:'A crumpled printed workout sheet titled Shadow, listing sandbag exercises, lying on concrete'},
+      {src:'uptown-funk.jpg',w:1024,h:768,pos:'55% 50%',caption:'Uptown Funk \u00b7 Church St Parking Deck',
+        alt:'A group of men on top of a parking deck at sunrise with the city behind them'}
+    ];
+    var fig=document.getElementById('herophoto'); if(!fig) return;
+    var p=PHOTOS[Math.floor(Math.random()*PHOTOS.length)];
+    var img=document.createElement('img');
+    img.width=p.w; img.height=p.h; img.alt=p.alt; img.style.objectPosition=p.pos;
+    img.setAttribute('fetchpriority','high');
+    img.src='photos/'+p.src;
+    fig.insertBefore(img,fig.firstChild);
+    fig.querySelector('figcaption').textContent=p.caption;
+  })();
+  </script>
 </header>
 
 <div class="sched wrap" id="workouts">
