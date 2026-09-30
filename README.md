@@ -15,6 +15,7 @@ names or email addresses in this repository. Those live in the private
 | `index.html` | The entire website. One page, no build step, styles inline. |
 | `404.html` | Shown for any old WordPress URL. Points people at PAX Vault. |
 | `photos/` | Photos for the top of the page. See **Photos** below. |
+| `fng/index.html` | Makes `f3greensboro.com/fng` forward to the FNG Google Form. Change the link inside it to repoint it. |
 | `CNAME` | Tells GitHub Pages to serve the site at `f3greensboro.com`. Do not delete it. |
 
 ## Editing
