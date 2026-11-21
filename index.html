@@ -109,8 +109,9 @@ a{color:var(--yellow)}
 .ao .when span{color:var(--ink-2);font-weight:400}
 .ao h4{font-size:23px;margin-top:5px;color:var(--ink)}
 .ao .where{font-size:15px;color:var(--ink-2);line-height:1.4;display:flex;align-items:center;justify-content:space-between;gap:10px}
-.ao .map{flex:none;display:grid;place-items:center;width:34px;height:34px;margin:-6px -8px -6px 0;color:var(--yellow);border-radius:50%}
-.ao .map:hover{background:var(--green-lo);color:var(--ink)}
+.ao .map{flex:none;display:block;width:38px;height:38px;margin:-9px 0;border-radius:7px;box-shadow:0 0 0 1px var(--line);transition:box-shadow .15s}
+.ao .map svg{display:block}
+.ao .map:hover{box-shadow:0 0 0 2px var(--yellow)}
 .ao .tag{display:inline-block;font:600 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;background:var(--green-lo);color:var(--yellow);padding:6px 9px;margin-top:6px}
 .ao .q{font:500 12px/1 var(--mono);letter-spacing:.06em;color:var(--ink-2);border-top:1px solid var(--line);padding-top:10px;margin-top:8px;text-transform:uppercase}
 
@@ -156,6 +157,20 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <clipPath id="maptile-clip"><rect width="40" height="40" rx="7"/></clipPath>
+  <symbol id="maptile" viewBox="0 0 40 40"><g clip-path="url(#maptile-clip)">
+    <rect width="40" height="40" fill="#1B1C1F"/>
+    <path d="M26 0h14v12l-7 3-5-6z" fill="#17301F"/>
+    <g fill="none" stroke="#3B3E43" stroke-width=".9" stroke-linecap="round">
+      <path d="M0 8.5 40 10.5M0 19.5l12-.8M27 17.5l13-.6M0 33l40 1.5M3 14.5l9-.6M7.5 0 9 40M19.5 0 19 11M31.5 15 30.5 40M17.5 28 17 40M24 31l1 9"/>
+    </g>
+    <path d="M0 26c8-1.5 12 3 20 1s14-6.5 20-4.5" fill="none" stroke="#8C6E1E" stroke-width="2"/>
+    <ellipse cx="20" cy="29.4" rx="3.6" ry="1.2" fill="#000" opacity=".45"/>
+    <path transform="translate(12.5 7.5) scale(.625)" d="M12 0C5.4 0 0 5.2 0 11.7 0 20.4 12 35 12 35s12-14.6 12-23.3C24 5.2 18.6 0 12 0z" fill="#F2C230" stroke="#0B0B0C" stroke-width="2.4" paint-order="stroke"/>
+    <circle cx="20" cy="14.8" r="2.6" fill="#1B1C1F"/>
+  </g></symbol>
+</defs></svg>
 <div class="topbar">
   <div class="wrap">
     <a class="brand" href="#top">F3 <span>Greensboro</span></a>
@@ -269,21 +284,21 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>JTown Beatdown</h4>
-            <p class="where"><span>Life Community Church</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.045798,-79.931773" target="_blank" rel="noopener" aria-label="Map to the JTown Beatdown shovel flag at Life Community Church (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Life Community Church</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.045798,-79.931773" target="_blank" rel="noopener" aria-label="Map to the JTown Beatdown shovel flag at Life Community Church (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Stryker / Ma Meatloaf</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Latham Grinder</h4>
-            <p class="where"><span>Latham Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.086788,-79.795040" target="_blank" rel="noopener" aria-label="Map to the Latham Grinder shovel flag at Latham Park (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Latham Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.086788,-79.795040" target="_blank" rel="noopener" aria-label="Map to the Latham Grinder shovel flag at Latham Park (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Dano, Champ</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Quaker Crater</h4>
-            <p class="where"><span>Jefferson Elementary</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.105880,-79.884960" target="_blank" rel="noopener" aria-label="Map to the Quaker Crater shovel flag at Jefferson Elementary (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Jefferson Elementary</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.105880,-79.884960" target="_blank" rel="noopener" aria-label="Map to the Quaker Crater shovel flag at Jefferson Elementary (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Doherty</p>
           </article>
@@ -295,28 +310,28 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Arise</h4>
-            <p class="where"><span>Grace UMC</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.074615,-79.795443" target="_blank" rel="noopener" aria-label="Map to the Arise shovel flag at Grace UMC (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Grace UMC</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.074615,-79.795443" target="_blank" rel="noopener" aria-label="Map to the Arise shovel flag at Grace UMC (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Euphrates, Straight Shooter</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Fenceline</h4>
-            <p class="where"><span>Irving Park Elementary</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.097200,-79.813300" target="_blank" rel="noopener" aria-label="Map to the Fenceline shovel flag at Irving Park Elementary (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Irving Park Elementary</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.097200,-79.813300" target="_blank" rel="noopener" aria-label="Map to the Fenceline shovel flag at Irving Park Elementary (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Eyeroll, Ricola</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Shake Weight</h4>
-            <p class="where"><span>Tanger Building Parking Deck</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.088700,-79.833200" target="_blank" rel="noopener" aria-label="Map to the Shake Weight shovel flag at Tanger Building Parking Deck (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Tanger Building Parking Deck</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.088700,-79.833200" target="_blank" rel="noopener" aria-label="Map to the Shake Weight shovel flag at Tanger Building Parking Deck (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Dumbbells / Bootcamp</span></p>
             <p class="q">Site Q &middot; Fannie</p>
           </article>
           <article class="ao">
             <p class="when">5:45pm <span>&rarr; 6:30pm</span></p>
             <h4>Blue Plate Special</h4>
-            <p class="where"><span>Leonard Recreation Center</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.103555,-79.909436" target="_blank" rel="noopener" aria-label="Map to the Blue Plate Special shovel flag at Leonard Recreation Center (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Leonard Recreation Center</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.103555,-79.909436" target="_blank" rel="noopener" aria-label="Map to the Blue Plate Special shovel flag at Leonard Recreation Center (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Mr. Hand</p>
           </article>
@@ -328,21 +343,21 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Local Honey</h4>
-            <p class="where"><span>Bellemeade St and Commerce Pl</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.074674,-79.792369" target="_blank" rel="noopener" aria-label="Map to the Local Honey shovel flag at Bellemeade St and Commerce Pl (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Bellemeade St and Commerce Pl</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.074674,-79.792369" target="_blank" rel="noopener" aria-label="Map to the Local Honey shovel flag at Bellemeade St and Commerce Pl (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Mesquite</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Natty&#x27;s Hump</h4>
-            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Natty&#x27;s Hump shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Natty&#x27;s Hump shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Jingles</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Slammin&#x27; Sammy&#x27;s Smackdown</h4>
-            <p class="where"><span>Lindley Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.073757,-79.839056" target="_blank" rel="noopener" aria-label="Map to the Slammin&#x27; Sammy&#x27;s Smackdown shovel flag at Lindley Park (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Lindley Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.073757,-79.839056" target="_blank" rel="noopener" aria-label="Map to the Slammin&#x27; Sammy&#x27;s Smackdown shovel flag at Lindley Park (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Judd, Workman&#x27;s Comp</p>
           </article>
@@ -354,35 +369,35 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Starmount Stampede</h4>
-            <p class="where"><span>Lindley Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.073757,-79.839056" target="_blank" rel="noopener" aria-label="Map to the Starmount Stampede shovel flag at Lindley Park (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Lindley Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.073757,-79.839056" target="_blank" rel="noopener" aria-label="Map to the Starmount Stampede shovel flag at Lindley Park (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Run</span></p>
             <p class="q">Site Q &middot; Huggies</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Sweat Angel</h4>
-            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.121701,-79.834589" target="_blank" rel="noopener" aria-label="Map to the Sweat Angel shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.121701,-79.834589" target="_blank" rel="noopener" aria-label="Map to the Sweat Angel shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Kettlebell / Dumbbells</span></p>
             <p class="q">Site Q &middot; Doc &amp; Nature Boy</p>
           </article>
           <article class="ao">
             <p class="when">7:00pm <span>&rarr; 7:45pm</span></p>
             <h4>Closing Time</h4>
-            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Closing Time shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Closing Time shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Byner</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Hobble and Gobble</h4>
-            <p class="where"><span>K&amp;W Cafeteria</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.088200,-79.833800" target="_blank" rel="noopener" aria-label="Map to the Hobble and Gobble shovel flag at K&amp;W Cafeteria (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>K&amp;W Cafeteria</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.088200,-79.833800" target="_blank" rel="noopener" aria-label="Map to the Hobble and Gobble shovel flag at K&amp;W Cafeteria (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Ruck and Coupon</span></p>
             <p class="q">Site Q &middot; Phoenix, Stretch</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Ink Well</h4>
-            <p class="where"><span>Smith High School</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.034796,-79.849180" target="_blank" rel="noopener" aria-label="Map to the Ink Well shovel flag at Smith High School (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Smith High School</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.034796,-79.849180" target="_blank" rel="noopener" aria-label="Map to the Ink Well shovel flag at Smith High School (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Flo Jo</p>
           </article>
@@ -394,14 +409,14 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Uptown Funk</h4>
-            <p class="where"><span>Church St Parking Deck</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.074456,-79.786319" target="_blank" rel="noopener" aria-label="Map to the Uptown Funk shovel flag at Church St Parking Deck (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Church St Parking Deck</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.074456,-79.786319" target="_blank" rel="noopener" aria-label="Map to the Uptown Funk shovel flag at Church St Parking Deck (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Tentpole, Etch-a-Sketch</p>
           </article>
           <article class="ao">
             <p class="when">5:30am <span>&rarr; 6:15am</span></p>
             <h4>Castle Tour</h4>
-            <p class="where"><span>Irving Park Elementary</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.097200,-79.813300" target="_blank" rel="noopener" aria-label="Map to the Castle Tour shovel flag at Irving Park Elementary (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Irving Park Elementary</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.097200,-79.813300" target="_blank" rel="noopener" aria-label="Map to the Castle Tour shovel flag at Irving Park Elementary (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Running</span></p>
             <p class="q">Site Q &middot; PAX Led</p>
           </article>
@@ -413,28 +428,28 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
           <article class="ao">
             <p class="when">6:00am <span>&rarr; 7:00am</span></p>
             <h4>Northern Ruckus</h4>
-            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Northern Ruckus shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Northern Ruckus shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Ruck</span></p>
             <p class="q">Site Q &middot; PAX Led</p>
           </article>
           <article class="ao">
             <p class="when">7:00am <span>&rarr; 8:00am</span></p>
             <h4>Cornwallis&#x27; Nightmare</h4>
-            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Cornwallis&#x27; Nightmare shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Cornwallis&#x27; Nightmare shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Radiator, On Time</p>
           </article>
           <article class="ao">
             <p class="when">7:00am <span>&rarr; 8:00am</span></p>
             <h4>Rainbow Dash</h4>
-            <p class="where"><span>Mendenhall Middle School</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.108772,-79.801620" target="_blank" rel="noopener" aria-label="Map to the Rainbow Dash shovel flag at Mendenhall Middle School (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Mendenhall Middle School</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.108772,-79.801620" target="_blank" rel="noopener" aria-label="Map to the Rainbow Dash shovel flag at Mendenhall Middle School (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; CrabCake</p>
           </article>
           <article class="ao">
             <p class="when">7:00am <span>&rarr; 8:00am</span></p>
             <h4>Wakanda</h4>
-            <p class="where"><span>Dudley High School</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.060013,-79.765315" target="_blank" rel="noopener" aria-label="Map to the Wakanda shovel flag at Dudley High School (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Dudley High School</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.060013,-79.765315" target="_blank" rel="noopener" aria-label="Map to the Wakanda shovel flag at Dudley High School (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Bootcamp</span></p>
             <p class="q">Site Q &middot; Spare Time</p>
           </article>
@@ -446,14 +461,14 @@ footer .fine{font:400 11.5px/1.7 var(--mono);color:var(--ink-2);letter-spacing:.
           <article class="ao">
             <p class="when">6:30am <span>&rarr; until</span></p>
             <h4>Sole Crusher</h4>
-            <p class="where"><span>Caribou Coffee at Friendly Center</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.087462,-79.831277" target="_blank" rel="noopener" aria-label="Map to the Sole Crusher shovel flag at Caribou Coffee at Friendly Center (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Caribou Coffee at Friendly Center</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.087462,-79.831277" target="_blank" rel="noopener" aria-label="Map to the Sole Crusher shovel flag at Caribou Coffee at Friendly Center (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Run</span></p>
             <p class="q">Site Q &middot; PAX Led</p>
           </article>
           <article class="ao">
             <p class="when">7:00am <span>&rarr; until</span></p>
             <h4>Ruck the Dog</h4>
-            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Ruck the Dog shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z" fill="currentColor"/></svg></a></p>
+            <p class="where"><span>Jaycee Park</span><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=36.119265,-79.834492" target="_blank" rel="noopener" aria-label="Map to the Ruck the Dog shovel flag at Jaycee Park (opens Google Maps)" title="Park at the shovel flag"><svg width="38" height="38" aria-hidden="true" focusable="false"><use href="#maptile"/></svg></a></p>
             <p><span class="tag">Ruck</span></p>
             <p class="q">Site Q &middot; PAX Led</p>
           </article>
